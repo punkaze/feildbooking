@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sport Complex Web Booking</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <form action="endbooking.php" method="post">
+    <form action="information.php" method="post">
         <table>
-            <tr>
-                <td id="text">ชื่อ-นามสกุล​ : </td>
-                <td><?php echo $_POST['name'] ?></td>
-            </tr>
             <tr>
                 <td id="text">สนามที่เลือก : </td>
                 <td><?php echo $_POST['feild'] ?></td>
@@ -24,7 +20,12 @@
             </tr>
             <tr>
                 <td id="text">เลือกเวลาเริ่ม : </td>
-                <td><input type="time" name="stime" id="stime"></td>
+                <td>
+                    <input type="radio" name="sTime" id="1630" value="16:30:01"><label for="1630">16:30 น.</label><br>
+                    <input type="radio" name="sTime" id="1730" value="17:30:01"><label for="1730">17:30 น.</label><br>
+                    <input type="radio" name="sTime" id="1830" value="18:30:01"><label for="1830">18:30 น.</label><br>
+                    <input type="radio" name="sTime" id="1930" value="19:30:01"><label for="1930">19:30 น.</label>
+                </td>
             </tr>
             <tr>
                 <td id="text">เลือกระยะเวลา : </td>
@@ -42,7 +43,7 @@
             </tr>
         </table>
         <?php
-            echo '<input type="hidden" name="name" value="'.$_POST['name'].'">';
+            
             echo '<input type="hidden" name="feild" value="'.$_POST['feild'].'">';
             echo '<input type="hidden" name="date" value="'.$_POST['date'].'">';
         ?>
