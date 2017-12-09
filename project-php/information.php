@@ -32,6 +32,7 @@
 echo '<input type="hidden" name="feild" value="'.$_POST['feild'].'">';
 echo '<input type="hidden" name="date" value="'.$_POST['date'].'">';
 echo '<input type="hidden" name="stime" value="'.$_POST['stime'].'">';
+echo '<input type="hidden" name="price" value="'.$_POST['price'].'">';
 echo '<input type="hidden" name="hour" value="'.$_POST['hour'].'">';
 function test_input($data) {
   $data = trim($data);

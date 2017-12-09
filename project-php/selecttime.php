@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+<?php
+                        $connect = mysqli_connect("localhost","root","","sport");
+                        $sql = 'select Fprice from feild where Fname="'.$_POST['feild'].'"';
+                        $result = mysqli_query($connect,$sql);
+                        if (!$result) {
+                            echo mysqli_error();
+                            die('Can not access database!');
+                        } else {
+                            while ($row = mysqli_fetch_array($result)) {
+                            $Fprice = $row['Fprice'];
+                                //echo '<input type="hidden" name="price" value="'.$row['Fprice'].'">';
+                            }
+                            mysqli_close($connect);
+                        }
+                        ?>
     <form action="information.php" method="post">
         <table>
         
@@ -22,6 +37,10 @@
             <tr>
                 <td id="text">เลือกเวลาเริ่ม : </td>
                 <td><input type="time" name="stime" id="stime"></td>
+            </tr>
+            <tr>
+            <td id="text">จำนวนเงิน :</td>
+            <td><?php echo $Fprice.'Bath' ?></td>
             </tr>
             <tr>
                 <td id="text">เลือกระยะเวลา : </td>
@@ -39,6 +58,7 @@
             </tr>
         </table>
         <?php
+              echo '<input type="hidden" name="price" value="'.$Fprice.'">';
             
             echo '<input type="hidden" name="feild" value="'.$_POST['feild'].'">';
             echo '<input type="hidden" name="date" value="'.$_POST['date'].'">';

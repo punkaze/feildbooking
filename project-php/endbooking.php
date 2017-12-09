@@ -15,9 +15,10 @@
         echo '<tr><td>วันที่ : </td> <td>'.$_POST['date'].'</td></tr><br>';
         echo '<tr><td>เวลาเริ่ม :</td> <td>'.$_POST['stime'].'</td></tr><br>';
         echo '<tr><td>ระยะเวลา :</td> <td>'.$_POST['hour'].'</td></tr><br>';
-        echo '<tr><td>
+        $outcome = $_POST['price'] * $_POST['hour'];
+        echo '<tr><td>ยอดเงินรวม : </td> <td>'.$outcome.'</td></tr><br>';
        
-        echo '<tr>';
+       
         if(!preg_match('/^[0-9]{10}$/', $_POST['Mtel']))
         {
             $phoneErr = "<td>เบอร์โทร: </td> <td> <font color = #FF0000 > only numbers allowed </font></td> ";
